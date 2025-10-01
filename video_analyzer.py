@@ -56,7 +56,12 @@ Generate a detailed Markdown report that follows this EXACT structure and orderi
 # Video Analysis Report
 
 ## Timeline Breakdown (Chronological)
-Provide a shot-by-shot breakdown covering 100% of video duration, strictly in time order. For each shot, include:
+
+**CRITICAL: YOU MUST ANALYZE EVERY SHOT IN THE VIDEO FROM START TO FINISH. DO NOT STOP AFTER A FEW SHOTS.**
+
+Provide a shot-by-shot breakdown covering 100% of video duration, strictly in time order. Identify natural shot boundaries (cuts, transitions, significant camera/scene changes) and create a separate analysis section for EACH shot. 
+
+For EVERY shot from 00:00 to the end of the video, include:
 
 ### SHOT METADATA
 - Timestamp: [MM:SS]–[MM:SS]
@@ -103,13 +108,91 @@ Brief inventory of background elements that provide depth and context.
 - **Lighting Ratio**: [Key to fill approximate ratio, e.g., 4:1 high contrast]
 - **Color Distribution**: [Dominant: color X%, Secondary: color Y%, Accent: color Z%]
 
-#### CAMERA SPECIFICATIONS
-- **Angle**: [Eye-level/High/Low/Dutch] + degrees if measurable
-- **Shot Size**: [Extreme Wide/Wide/Medium/Close-up/Extreme Close-up]
-- **Lens Character**: [Ultra-wide <20mm / Wide 20-35mm / Normal 35-55mm / Tele 55-85mm / Long >85mm]
-- **Focal Estimate**: Based on perspective compression, field of view
-- **Camera Height**: [Relative to subject, e.g., "eye-level ~1.6m" or "overhead ~3m"]
-- **Camera Distance**: [Close <2m / Medium 2-5m / Far >5m] from primary subject
+#### CAMERA GEOMETRY & POSITIONING (Critical for Accurate Reconstruction)
+
+**CAMERA POSITION (3D Spatial Analysis)**
+- **Camera Height (Absolute)**: [Estimated height above ground level in meters, e.g., "2.3m above ground level"]
+  - Estimation Method: [How determined - e.g., "based on horizon line at subject's chest height (subject ~1.7m tall), camera ~0.6m above"]
+  - Reference Points: [What was used for measurement - "door frame visible at 2.1m", "car hood at 1.2m", "average human eye level 1.6m"]
+- **Camera Height (Relative to Subject)**: [Position relative to primary subject - "0.4m above subject's eye level", "at subject's waist height", "2m below subject"]
+- **Horizontal Position**: [Left/Center/Right relative to scene, with offset estimate if applicable - "1.5m camera-left of subject's centerline"]
+- **Distance to Primary Subject**: 
+  - Estimated Distance: [Precise estimate in meters, e.g., "4.2 meters"]
+  - Distance Category: [Close <2m / Medium 2-5m / Far 5-10m / Very Far >10m]
+  - Estimation Method: [How calculated - see methodology below]
+    * Subject height reference (assume average adult 1.65-1.75m, adjust for visible age/build)
+    * Known object sizes (door 2m, car length 4-5m, motorcycle 2m, bicycle 1.7m)
+    * Perspective convergence rate of parallel lines
+    * Relative size of facial features (head width ~15cm at known distances)
+    * Depth-of-field relationship (sharp zone extent at given aperture)
+
+**CAMERA ANGLE (Precise Decomposition)**
+- **Pitch (Vertical Angle)**: [Up/Down tilt in degrees]
+  - Measurement: [e.g., "+25 degrees" for looking down, "-15 degrees" for looking up, "0 degrees" for level]
+  - Determination Method: [How calculated - "horizon line position relative to frame center", "subject's body proportions compression/expansion", "vertical line convergence"]
+  - Descriptive: [High angle / Eye-level / Low angle / Bird's eye / Worm's eye]
+- **Yaw (Horizontal Angle)**: [Left/Right rotation relative to subject's front]
+  - Measurement: [e.g., "45 degrees camera-right of subject's facing direction", "0 degrees head-on", "90 degrees profile", "135 degrees three-quarter back"]
+  - Subject Relationship: [What part of subject is visible - "full frontal view", "left profile", "three-quarter view showing left 70%"]
+- **Roll (Horizon Tilt)**: [Dutch angle amount]
+  - Measurement: [e.g., "0 degrees (level)", "+8 degrees clockwise tilt", "-12 degrees counter-clockwise"]
+  - Visual Effect: [What this creates - "stable", "slightly unsettling", "dynamic energy"]
+
+**LENS CHARACTERISTICS & FIELD OF VIEW**
+- **Focal Length Estimate**: [Specific estimate in full-frame equivalent, e.g., "50mm", "24mm", "85mm"]
+  - Category: [Ultra-wide <20mm / Wide 20-35mm / Normal 35-55mm / Short Tele 55-85mm / Telephoto >85mm]
+  - Confidence: [High/Medium/Low] based on evidence strength
+- **Field of View (FOV)**:
+  - Horizontal FOV: [Degrees, e.g., "46 degrees (normal)", "84 degrees (wide)", "28 degrees (tele)"]
+  - Vertical FOV: [Degrees, account for aspect ratio]
+  - Estimation Method: [What indicates this - "subject fills X% of frame at Y distance", "visible width at known distance"]
+- **Perspective Characteristics**:
+  - Compression: [None/Slight/Moderate/Strong - how depth is compressed]
+  - Evidence: ["Background appears X% closer than it is", "foreground elements show minimal size exaggeration", "parallel lines converge at rate consistent with Xmm lens"]
+  - Distortion: [Barrel (wide lens) / None / Pincushion (tele)]
+  - Edge Behavior: [How straight lines behave at frame edges - "straight", "slightly bowed", "significant curvature"]
+
+**SPATIAL REFERENCE FRAMEWORK**
+- **Coordinate System Origin**: [Where 0,0,0 is defined - typically "primary subject's ground contact point" or "frame geometric center at subject depth"]
+- **Ground Plane Orientation**: [Describe the ground/floor relative to camera]
+  - Visible: [Yes/No - can you see where subjects stand?]
+  - Angle: [Parallel to sensor / Tilted toward camera / Tilted away from camera] + degrees if measurable
+  - Reference: ["Tile grid shows vanishing point at frame center 60% up", "horizon line at 45% frame height"]
+- **Depth Axis (Z-axis) Direction**: [Into the scene - describe viewing angle]
+  - Parallel Lines: [Railroad track effect - where do parallel lines converge? "Upper third center", "Not visible - perpendicular view"]
+  - Depth Compression: [Strong (telephoto feel) / Natural / Exaggerated (wide angle feel)]
+
+**SHOT SIZE & FRAMING**
+- **Shot Size Classification**: [Extreme Wide / Wide / Medium Wide / Medium / Medium Close-Up / Close-Up / Extreme Close-Up]
+- **Subject Framing**: [Describe what body parts are included]
+  - If Person: [Full body / From knees up / From waist up / Shoulders and head / Head only / Facial feature detail]
+  - Frame Tightness: [How much space around subject - "loose framing with 30% headroom", "tight crop at edges"]
+- **Screen Space Occupied**: [Subject occupies X% of frame width, Y% of frame height]
+
+**CAMERA MOVEMENT GEOMETRY** (if applicable - otherwise state "STATIC")
+- **Movement Type**: [None/Pan/Tilt/Dolly/Track/Crane/Orbit/Zoom/Handheld/Combined]
+- **If Pan**: [Direction: Left/Right] + [Amount: degrees] + [Duration: seconds] + [Speed: degrees/second]
+- **If Tilt**: [Direction: Up/Down] + [Amount: degrees] + [Duration: seconds]
+- **If Dolly**: [Direction: Forward/Backward] + [Distance: meters] + [Duration: seconds] + [Speed: m/s]
+- **If Track**: [Direction: Left/Right/Diagonal] + [Distance: meters] + [Maintains subject distance: Yes/No]
+- **If Orbit**: [Around subject - Clockwise/Counter-clockwise] + [Degrees traveled] + [Radius: meters]
+- **If Zoom**: [In/Out] + [Focal length change: start mm → end mm] + [Duration: seconds]
+- **Movement Quality**: [Smooth/Jerky/Organic] + [Speed: Slow/Medium/Fast] + [Acceleration: Constant/Easing in-out/Sudden]
+- **Stabilization Quality**: [Locked (tripod) / Smooth (gimbal/dolly) / Slight shake (handheld) / Unstabilized (raw handheld)]
+
+**MOTION PARALLAX & DEPTH CUES**
+- **Foreground-to-Background Motion Differential**: [When camera/subject moves, how much do different depth layers move relative to each other?]
+  - Strong Parallax: [Wide lens, close to subject, visible depth separation]
+  - Moderate Parallax: [Normal lens, medium distance]
+  - Minimal Parallax: [Telephoto compression, subjects and background move similarly]
+- **Motion Vector Analysis**: [If camera moves - which way does background appear to move?]
+  - Camera moves right → Background appears to move left
+  - Track speed relative to subject speed for following shots
+
+**CAMERA POSITION SUMMARY (Prompt-Ready)**
+[Write a 2-3 sentence natural language summary of camera positioning that can be directly used in image generation prompts]
+
+Example: "Camera positioned 4.2 meters from subject at a height of 2.3m (0.7m above subject's eye level), creating a subtle high angle of 18 degrees looking down. Shot with a 50mm equivalent lens producing a natural field of view of 46 degrees with no distortion. The camera is static on a tripod, positioned slightly camera-right of the subject's centerline, capturing a three-quarter view showing 65% of the subject's front."
 
 #### LIGHTING DESIGN (Reconstruction-Ready)
 - **Key Light**: [Position e.g., "camera-right 45°, elevated 30°", quality, color temp, intensity 1-10]
@@ -201,13 +284,33 @@ For each distinct moving subject:
 | ID | Class | Screen Path | Speed | Style | Key Interactions |
 |----|-------|-------------|-------|-------|-----------------|
 
-**Camera Motion Analysis**:
-- **Type**: [Static/Pan/Tilt/Dolly/Track/Handheld/Crane/Orbit/Zoom]
-- **Direction & Magnitude**: [E.g., "Pan left 30° over 4 seconds", "Dolly forward 3m"]
-- **Speed**: [Slow/Medium/Fast + smooth/jerky]
-- **Motivation**: [Follows subject / Reveals environment / Unmotivated artistic choice]
-- **Stabilization**: [Tripod steady / Subtle handheld shake / Deliberate instability]
-- **Ego-Motion Separation**: [How to distinguish camera motion from subject motion]
+**Camera Motion Analysis** (Enhanced 3D Analysis):
+- **Movement Type**: [Static/Pan/Tilt/Dolly/Track/Crane/Orbit/Zoom/Handheld/Combined]
+- **If STATIC**: [Confirm: "Camera is completely stationary on tripod, no movement"]
+- **If MOVING**:
+  - **Translation (Linear Movement)**:
+    * X-axis (Horizontal): [Left/Right] + [Distance: meters] + [Speed: m/s]
+    * Y-axis (Vertical): [Up/Down] + [Distance: meters] + [Speed: m/s]
+    * Z-axis (Depth): [Forward/Backward toward/away from subject] + [Distance: meters] + [Speed: m/s]
+  - **Rotation (Angular Movement)**:
+    * Pan (Yaw): [Left/Right] + [Degrees: total angle swept] + [Speed: degrees/second]
+    * Tilt (Pitch): [Up/Down] + [Degrees: total angle] + [Speed: degrees/second]
+    * Roll: [Clockwise/Counter-clockwise rotation] + [Degrees if intentional]
+  - **Combined Movement Description**: [E.g., "Dolly forward 2m while panning right 15° and tilting down 5°"]
+  - **Duration**: [Total movement duration in seconds]
+  - **Movement Quality**: 
+    * Speed Profile: [Constant / Accelerating / Decelerating / Ease in-out]
+    * Smoothness: [Perfectly smooth (locked) / Slight organic motion / Visible shake / Jerky]
+  - **Subject Tracking**: [Does camera follow subject? How?]
+    * Lock Type: [Perfect lock (subject stays in same screen position) / Loose follow / Leading / Lagging]
+    * Distance Change: [Maintains distance / Approaches / Recedes]
+- **Stabilization Analysis**: [Tripod locked / Gimbal smooth / Dolly/track / Handheld shake / Vehicle-mounted]
+- **Motivation**: [Follows subject action / Reveals environment / Creates tension / Unmotivated artistic choice]
+- **Ego-Motion Separation**: [Critical - How to distinguish camera motion from subject motion]
+  - Background Movement: [How background moves reveals camera motion]
+  - Subject Relative Position: [Does subject stay centered or drift across frame?]
+  - Parallax Indicators: [Do foreground/background layers move at different rates?]
+- **Reference Frame**: [Is camera fixed to ground, vehicle, person, crane, drone?]
 
 ### Object Identification & Usage (Very Important)
 For each subject interacting with an object/vehicle/tool, identify the object as specifically as possible using only visible cues. Report a best match and alternatives with confidence + evidence.
@@ -248,6 +351,16 @@ For **vehicles/objects** being used:
 ---
 
 **Repeat ALL above sections for EACH frame snapshot in this shot**
+
+---
+
+**IMPORTANT: After completing one shot analysis, IMMEDIATELY begin the next shot analysis. Continue this process until you reach the end of the video. DO NOT SKIP ANY SHOTS.**
+
+---
+
+[Continue with next shot following the exact same structure: SHOT METADATA → FRAME STATE SNAPSHOTS → SUBJECTS & MOTION TRACKING → DETAILED POSE ANALYSIS]
+
+[Repeat for ALL subsequent shots until video ends]
 
 ---
 
@@ -406,6 +519,156 @@ Difficulty assessment per shot:
 - **Motion Blur**: [Natural/added/excessive]
 - **Frame Rate**: [24fps/30fps/60fps or other]
 
+## CINEMATOGRAPHY QUALITY PROFILE (Critical for Matching Video Look)
+
+This section captures the technical "DNA" of how the video was shot - the camera, lens, and film characteristics that define its visual quality. These attributes MUST be maintained across all generated sequences for authentic recreation.
+
+### Camera/Sensor Characteristics
+- **Capture Medium**: [Film (35mm/16mm/Super 8) / Digital (Full Frame/APS-C/Micro 4/3) / Video (Prosumer/Cinema)]
+- **Sensor/Film Signature**: [Key visual indicators]
+  - Resolution feel: [Crisp/Soft/Grainy based on visible detail retention]
+  - Dynamic range: [How highlights and shadows are rendered - film-like rolloff vs digital clipping]
+  - Latitude: [How much detail retained in bright/dark areas]
+  - Color bit depth: [Rich gradations vs posterization/banding]
+- **Digital vs Film Markers**:
+  - If Film: Organic grain structure, halation around lights, gentle highlight rolloff, characteristic color response
+  - If Digital: Clean shadows, sharp transitions, specific sensor artifacts, modern color science
+- **Format Indicators**: [Evidence of capture format - aspect ratio native to format, crop patterns, edge characteristics]
+
+### Lens Characteristics Profile
+- **Focal Length Behavior**: [How perspective/compression appears across shots]
+  - Wide shots: [Distortion amount, edge falloff, field curvature]
+  - Normal shots: [Rendering style, central vs edge sharpness]
+  - Telephoto shots: [Compression amount, bokeh quality, subject isolation]
+- **Optical Quality Signature**:
+  - Sharpness: [Clinical/Modern/Vintage/Soft - where peak sharpness, how it falls off toward edges]
+  - Contrast: [Micro-contrast character, local vs global]
+  - Resolution: [Line pair rendering, fine detail handling]
+- **Lens Artifacts & Character**:
+  - Vignetting: [Natural/Heavy/Corrected - specific pattern and intensity by focal length]
+  - Distortion: [Barrel/Pincushion/Minimal - geometric warping patterns]
+  - Chromatic Aberration: [Purple fringing/color separation at edges - where it appears, how prominent]
+  - Flare Behavior: [How lens handles bright lights - star patterns, veiling flare, ghost images, specific colors]
+  - Focus Breathing: [If zooms or focus pulls show size changes]
+- **Bokeh Character** (very important):
+  - Shape: [Circular/Hexagonal/Octagonal/Cat's eye - from aperture blade count and design]
+  - Quality: [Smooth/Busy/Swirly/Harsh - how out-of-focus areas render]
+  - Highlight behavior: [Specular highlights - round/defined edges/soap bubble effect]
+  - Background rendering: [How textures blur - creamy/nervous/painterly]
+- **Age/Era Indicators**: [Modern clinical, vintage warm, specific lens generation characteristics]
+
+### Film Stock / Color Science Profile
+- **Grain Structure** (critical for film look):
+  - Density: [Fine/Medium/Heavy - visible at what magnification]
+  - Size: [Micro-grain/Standard/Coarse - actual particle size appearance]
+  - Pattern: [Even/Clumpy/Organic - how grain distributes across frame]
+  - Movement: [Static/Dancing - does grain pattern change frame to frame]
+  - Color: [Monochrome/Chromatic - does grain have color component]
+  - Shadow vs Highlight grain: [Where grain is most/least visible]
+  - Specific Film Stock Match: [Which film stocks from reference list show this exact grain signature]
+- **Color Response Curves**:
+  - Skin tones: [Warm/Neutral/Cool - specific hue shifts, magenta/yellow/green tendencies]
+  - Primary colors: [How reds/blues/greens are rendered - saturation, hue accuracy, clipping behavior]
+  - Secondary colors: [Cyan/magenta/yellow - specific tonal shifts]
+  - Color separation: [How well colors remain distinct vs muddying]
+  - Saturation falloff: [How colors desaturate in shadows/highlights]
+- **Contrast Characteristics**:
+  - Global contrast: [Overall range - flat/moderate/high/extreme]
+  - Toe (shadow rolloff): [Abrupt/Gentle - how shadows transition to black]
+  - Shoulder (highlight rolloff): [Hard clip/Soft rolloff - how highlights transition to white]
+  - Curve shape: [Linear/S-curve/Lifted blacks/Crushed shadows - specific tonal mapping]
+  - Per-channel contrast: [Do R/G/B channels have different contrast curves]
+- **Specific Color Phenomena**:
+  - Halation: [Glow around bright lights - present/absent, color, intensity]
+  - Crossprocessing effects: [Any unusual color shifts suggesting non-standard development]
+  - Color casts: [Consistent color temperature shifts - warm/cool bias in shadows vs highlights]
+  - Film base color: [If visible in rebates/borders - indicates stock type]
+
+### Exposure & Dynamic Range Profile
+- **Exposure Philosophy**: [Overexposed-soft/Normal/Underexposed-moody - intentional exposure strategy]
+- **Highlight Handling**:
+  - Clipping point: [Where/how highlights blow out - hard digital clip vs film rolloff]
+  - Retention: [Detail preserved in bright areas - specular vs diffuse highlights]
+  - Recovery: [If overexposed, how much information retained]
+- **Shadow Handling**:
+  - Crush point: [Where shadows go to black - lifted/normal/crushed]
+  - Noise floor: [Grain/noise in deepest shadows]
+  - Detail retention: [Can you see into dark areas]
+- **Mid-tone Rendering**: [Where exposure is "set" - skin tones, gray card equivalent]
+- **Latitude Evidence**: [How much over/underexposure the footage shows it could handle]
+
+### Motion & Temporal Characteristics
+- **Frame Rate Feel**: [How motion renders]
+  - Cadence: [24fps cinematic judder / 30fps video smooth / 60fps hyper-smooth / other]
+  - Motion blur: [Amount and quality - natural/minimal/exaggerated]
+  - Shutter angle equivalent: [180°/90°/360° - affects motion blur amount]
+  - Strobe/stutter: [Any deliberate or camera-limitation motion artifacts]
+- **Motion Blur Character**:
+  - Length: [Short/Medium/Long trails on moving subjects]
+  - Quality: [Clean/Smeared/Directional - how blur renders]
+  - Consistency: [Same across frame or varies]
+- **Temporal Resolution**: [How crisp or blurred fast motion appears]
+- **Frame-to-Frame**: [Smoothness of motion, any telecine artifacts, judder patterns]
+
+### Image Processing & Post-Production Fingerprint
+- **Sharpening Signature**:
+  - Amount: [None/Subtle/Moderate/Heavy]
+  - Radius: [Fine detail enhancement vs broad enhancement]
+  - Artifacts: [Halos/ringing visible around edges]
+  - Where applied: [Overall vs selective]
+- **Noise Reduction Evidence**:
+  - Applied: [Yes/No/Selectively]
+  - Artifacts: [Smoothed textures, loss of fine detail, waxy skin]
+- **Stabilization**: [Post-stabilization artifacts - warping, edge crops, rolling shutter fix]
+- **Upscaling Indicators**: [If video was upscaled - specific algorithm artifacts, sharpening patterns]
+
+### QUALITY DNA SUMMARY (Use This Directly in Prompts)
+
+**Core Technical Keywords** (include in EVERY image generation prompt):
+[Generate a concise 50-100 word description that captures the essential technical look]
+
+**CRITICAL ERA-SPECIFIC REQUIREMENT:**
+If the video is determined to be from the 1970s, 1980s, 1990s, or early 2000s (before 2005), you MUST include the phrase **"grainy film"** (in bold) in the Core Technical Keywords. This phrase is essential for AI models to accurately replicate the analog film aesthetic of that era.
+
+Example format:
+"Shot on [specific camera/film stock] with [lens characteristics], exhibiting [grain description], [color science traits], [specific bokeh character], [lens artifacts], [contrast characteristics], [era-appropriate technical limitations], [notable optical phenomena]. [Specific sharpness quality]. [Motion blur character]. [Dynamic range handling style]. [IF 1970s-2000s: **grainy film**]"
+
+Example output (1990s video):
+"Shot on 35mm Kodak Vision3 500T with vintage Canon FD prime lenses, exhibiting organic medium-grain structure that's more visible in shadows, warm color science with slight magenta push in skin tones and teal-cyan shift in shadows, smooth circular bokeh with gentle swirl at edges, subtle vignetting and natural lens flare with warm amber tones, gentle S-curve contrast with lifted blacks and soft shoulder in highlights characteristic of film negative scan. Moderate sharpness with slight softness at frame edges, natural motion blur at 180° shutter, rich dynamic range with detail retention in both highlights and shadows typical of 1990s cinema. **grainy film**"
+
+**Quality Anchor Negative Prompts** (what to AVOID):
+[List 10-15 specific qualities that would break the look]
+
+Example: "Avoid: modern digital sharpness, clinical lens rendering, video camera look, heavy digital noise reduction, crushed blacks, blown highlights, hexagonal bokeh from modern lenses, oversaturated colors, HDR tone mapping, 60fps smoothness, heavy vignetting, chromatic aberration corrections, perfect edge-to-edge sharpness, digital color science, phone camera aesthetic"
+
+**Model-Specific Quality Settings**:
+- **For FLUX/Stable Diffusion**: 
+  - Key prompt additions: [specific technical keywords that work well]
+  - CFG Scale recommendation: [lower for film look, higher for sharpness]
+  - Sampler recommendations: [which samplers preserve grain/texture best]
+- **For Midjourney**:
+  - Style parameters: [--style raw, --chaos values, --stylize values]
+  - Reference image strategy: [using film grain references]
+- **For Image-to-Video**:
+  - Motion settings: [to match frame rate feel and motion blur]
+  - Temporal consistency: [how to maintain grain structure across frames]
+
+### Cinematographic Consistency Checklist
+
+Before generating ANY image, verify:
+- [ ] Core technical keywords included in prompt
+- [ ] Film stock/sensor characteristics specified
+- [ ] Lens behavior and artifacts mentioned
+- [ ] Grain structure described (if applicable)
+- [ ] Color science traits included
+- [ ] Bokeh character specified (if shallow DOF)
+- [ ] Contrast curve style mentioned
+- [ ] Negative prompts added to avoid wrong look
+- [ ] Era-appropriate technical limitations noted
+- [ ] Motion characteristics match source (for i2v)
+
+This profile ensures EVERY generated frame matches the source video's technical quality, not just its content.
+
 ## Critical Reconstruction Notes
 - **Must-Have Elements**: [List 5-10 absolutely critical visual elements for recognition]
 - **Acceptable Variations**: [What can differ from original without breaking fidelity]
@@ -456,7 +719,17 @@ STRICT REQUIREMENTS FOR ULTRA-COMPREHENSIVE ANALYSIS
 
 12. **MOTION SEPARATION**: Clearly distinguish camera motion from subject motion. State estimation method.
 
-13. **RECONSTRUCTION DIFFICULTY**: For each shot, assess how hard it will be to reconstruct and why.
+13. **CAMERA ANALYSIS PRECISION** (CRITICAL - NEW REQUIREMENT): 
+    - **Measure, Don't Estimate Vaguely**: Use visual reference points to calculate precise angles and distances
+    - **Height Calculation**: Use subject height as scale (average adult 1.65-1.75m), measure relative to horizon line, eye level, or known objects (doors 2m, vehicles, furniture)
+    - **Angle Decomposition**: Break down to Pitch (up/down in degrees), Yaw (left/right rotation), Roll (horizon tilt). Use horizon line position, body proportion compression, and line convergence to calculate
+    - **Distance Triangulation**: Use multiple methods: subject size percentage, facial feature size, known object sizes, perspective convergence, depth-of-field spread
+    - **Focal Length Evidence**: List specific visual cues - perspective compression (telephoto), distortion (wide), field of view coverage, subject-to-background relationship
+    - **Motion Vectors in 3D**: Always decompose camera motion into X (horizontal), Y (vertical), Z (depth) components with distance/speed, plus rotational components (pan/tilt/roll) with angles/speed
+    - **Show Your Work**: Always state the methodology and reference points used for each measurement
+    - **Camera Position Summary**: End each camera section with a 2-3 sentence natural language summary suitable for AI prompts
+
+14. **RECONSTRUCTION DIFFICULTY**: For each shot, assess how hard it will be to reconstruct and why.
 
 14. **MODEL AWARENESS**: Consider limitations of current AI models:
     - Complex multi-subject interactions are hard
@@ -471,6 +744,13 @@ STRICT REQUIREMENTS FOR ULTRA-COMPREHENSIVE ANALYSIS
 17. **STYLE CONSISTENCY**: Note repeated visual patterns, colors, compositions that define the video's aesthetic signature.
 
 18. **COMPLETE COVERAGE**: Analyze 100% of video duration. Every second must be accounted for in the breakdown.
+
+**FINAL REMINDER BEFORE YOU BEGIN:**
+- Count the number of distinct shots/scenes in the video FIRST
+- Create a SHOT section for EACH one using the template structure
+- Do not summarize or skip shots - provide full detailed analysis for EVERY shot
+- The Timeline Breakdown section should contain multiple complete shot analyses, not just one or two
+- Continue analyzing until you reach the end timestamp of the video
 
 REFERENCE — Use only these labels for classification:
 

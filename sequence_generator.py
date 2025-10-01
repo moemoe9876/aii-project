@@ -173,8 +173,9 @@ Before generating any prompts, extract from the analysis:
    Example: "young East Asian male, early 20s, slim build, short black hair, white tank top, beige open shirt, dark pants"
 2. **Object Consistency Keywords**: From Vehicle/Object Registry, note identifying details
 3. **Style Anchor Keywords**: From Visual Style Consistency section, identify the core aesthetic terms that must appear in every prompt
+4. **CINEMATOGRAPHY QUALITY PROFILE**: From the "CINEMATOGRAPHY QUALITY PROFILE" section, extract the "Core Technical Keywords" and "Quality Anchor Negative Prompts" - these are CRITICAL and must appear in EVERY image prompt
 
-These extracted keywords MUST appear in every relevant sequence prompt to maintain continuity.
+These extracted keywords MUST appear in every relevant sequence prompt to maintain continuity and quality consistency.
 
 OUTPUT FORMAT (STRICT)
 Generate Markdown with this structure:
@@ -201,6 +202,25 @@ Generate Markdown with this structure:
 - Color Palette: [from analysis]
 - Era Markers: [from analysis]
 
+### CINEMATOGRAPHY QUALITY PROFILE (CRITICAL - Include in EVERY Image Prompt)
+
+**Core Technical Keywords**:
+[Extract the "Core Technical Keywords" from the analysis CINEMATOGRAPHY QUALITY PROFILE section. This is a 50-100 word technical description that captures camera/sensor characteristics, lens behavior, grain structure, color science, bokeh, artifacts, contrast curves, and dynamic range. This MUST be appended to every First Frame and Last Frame prompt.]
+
+Example format: "Shot on 35mm Kodak Vision3 500T with vintage Canon FD prime lenses, exhibiting organic medium-grain structure that's more visible in shadows, warm color science with slight magenta push in skin tones and teal-cyan shift in shadows, smooth circular bokeh with gentle swirl at edges, subtle vignetting and natural lens flare with warm amber tones, gentle S-curve contrast with lifted blacks and soft shoulder in highlights characteristic of film negative scan. Moderate sharpness with slight softness at frame edges, natural motion blur at 180° shutter, rich dynamic range with detail retention in both highlights and shadows typical of 1990s cinema."
+
+**Quality Anchor Negative Prompts**:
+[Extract the "Quality Anchor Negative Prompts" from the analysis CINEMATOGRAPHY QUALITY PROFILE section. This is a list of 10-15 specific qualities to avoid that would break the look. This MUST be appended to every negative prompt.]
+
+Example: "Avoid: modern digital sharpness, clinical lens rendering, video camera look, heavy digital noise reduction, crushed blacks, blown highlights, hexagonal bokeh from modern lenses, oversaturated colors, HDR tone mapping, 60fps smoothness, heavy vignetting, chromatic aberration corrections, perfect edge-to-edge sharpness, digital color science, phone camera aesthetic"
+
+**USAGE INSTRUCTIONS**:
+- Every First Frame prompt MUST end with the Core Technical Keywords
+- Every Last Frame prompt MUST end with the Core Technical Keywords
+- Every Negative Prompt MUST include the Quality Anchor Negative Prompts
+- **CRITICAL**: If video is from 1970s-early 2000s, the Core Technical Keywords MUST include **"grainy film"** (in bold)
+- This ensures consistent cinematographic quality across all generated images
+
 ---
 
 ## Sequence 1: [Descriptive Title from Analysis]
@@ -217,9 +237,9 @@ Generate Markdown with this structure:
 
 [Flow: Begin with the subject/character (using continuity keywords if recurring character), describe their appearance and clothing in detail, mention their pose and body positioning, note their screen position. Then describe the environment and spatial arrangement of elements. Continue with lighting details (sources, directions, qualities, color temperature, shadows/highlights). Include the color palette with specific color names. Integrate camera specifications naturally (angle, lens character, distance, depth of field). Weave in the style elements (film stock look, era markers, atmosphere, mood). Conclude with quality descriptors. Make it read as one cohesive, vivid description.]
 
-**Example tone**: "A young East Asian male in his early 20s with a slim build and short black hair stands center-left in the frame, wearing a white tank top under an open beige short-sleeve shirt and dark pants. His body is turned slightly to the left at a 30-degree angle, with his weight evenly distributed and arms relaxed at his sides. He occupies approximately 40% of the frame height and is positioned at the upper-left rule-of-thirds intersection. Behind him stretches a wet asphalt street at night, reflecting the cool cyan and blue light from bright fluorescent storefronts in the background. The lighting comes from these commercial sources camera-right, creating a diffused, even illumination with soft shadows and a color temperature around 5600K. The color palette is dominated by deep cyan blues and cool whites, with small accents of warm yellow from distant signs. Shot from a slightly elevated angle about 2 meters above ground level with a normal 50mm lens equivalent, producing a medium depth of field that keeps the subject sharp while softly blurring the background. The aesthetic evokes Cinestill 800T film stock with visible halation around bright lights, characteristic of 1990s Taiwanese New Wave cinema. The overall mood is contemplative and urban. Professional photography, highly detailed, sharp focus, cinematic composition, 8k resolution."
+**Example tone**: "A young East Asian male in his early 20s with a slim build and short black hair stands center-left in the frame, wearing a white tank top under an open beige short-sleeve shirt and dark pants. His body is turned slightly to the left at a 30-degree angle, with his weight evenly distributed and arms relaxed at his sides. He occupies approximately 40% of the frame height and is positioned at the upper-left rule-of-thirds intersection. Behind him stretches a wet asphalt street at night, reflecting the cool cyan and blue light from bright fluorescent storefronts in the background. The lighting comes from these commercial sources camera-right, creating a diffused, even illumination with soft shadows and a color temperature around 5600K. The color palette is dominated by deep cyan blues and cool whites, with small accents of warm yellow from distant signs. Shot from a slightly elevated angle about 2 meters above ground level with a normal 50mm lens equivalent, producing a medium depth of field that keeps the subject sharp while softly blurring the background. The aesthetic evokes Cinestill 800T film stock with visible halation around bright lights, characteristic of 1990s Taiwanese New Wave cinema. The overall mood is contemplative and urban. [INSERT CORE TECHNICAL KEYWORDS HERE - e.g., Shot on 35mm Kodak Vision3 500T with vintage prime lenses, exhibiting organic medium-grain structure more visible in shadows, warm color science with slight magenta push in skin tones and teal-cyan shift in shadows, smooth circular bokeh, subtle vignetting and natural lens flare with warm amber tones, gentle S-curve contrast with lifted blacks and soft shoulder in highlights. Moderate sharpness with slight softness at frame edges, natural motion blur at 180° shutter, rich dynamic range typical of 1990s cinema.] Professional photography, highly detailed, sharp focus, cinematic composition."
 
-**Negative Prompt**: "blurry, out of focus, low quality, jpeg artifacts, watermark, text, distorted, deformed, bad anatomy, [add scene-specific negatives based on content]"
+**Negative Prompt**: "blurry, out of focus, low quality, jpeg artifacts, watermark, text, distorted, deformed, bad anatomy, [add scene-specific negatives], [INSERT QUALITY ANCHOR NEGATIVE PROMPTS HERE - e.g., modern digital sharpness, clinical lens rendering, video camera look, heavy digital noise reduction, blown highlights, hexagonal bokeh from modern lenses, oversaturated colors, HDR tone mapping, 60fps smoothness, perfect edge-to-edge sharpness, digital color science, phone camera aesthetic]"
 
 ---
 
@@ -246,7 +266,21 @@ Generate Markdown with this structure:
 
 ---
 
-[Repeat above structure for each sequence, maintaining character/style continuity...]
+**CRITICAL: REPEAT THE ABOVE STRUCTURE FOR EVERY SEQUENCE IN THE VIDEO.**
+
+YOU MUST GENERATE PROMPTS FOR ALL SEQUENCES FROM THE VIDEO ANALYSIS REPORT. DO NOT STOP AFTER ONE OR TWO SEQUENCES.
+
+For each remaining sequence in the analysis:
+1. Copy the "Sequence [N]" template above
+2. Extract frame state information from the corresponding shot in the analysis
+3. Maintain character continuity using the Character Registry
+4. Maintain style continuity using the Core Technical Keywords
+5. Continue until ALL sequences from the video analysis are converted to prompts
+
+[Sequence 2: ...]
+[Sequence 3: ...]
+[Sequence 4: ...]
+[Continue for ALL sequences...]
 
 ---
 
@@ -278,8 +312,9 @@ For each prompt, verify:
 - [ ] Lighting consistent with analysis
 - [ ] Color palette consistent
 - [ ] Film look keywords included
-- [ ] Quality keywords added
-- [ ] Negative prompts included
+- [ ] **CRITICAL: Core Technical Keywords appended to image prompt**
+- [ ] **CRITICAL: Quality Anchor Negative Prompts appended to negative prompt**
+- [ ] All quality characteristics match the source video's cinematography
 
 ### Generation Workflow
 1. **Prepare**: Review Continuity Anchors section
@@ -308,6 +343,13 @@ WRITING GUIDELINES
 3. Maintain consistency of characters, lighting, and style across sequences.
 4. Motions should obey physical plausibility.
 5. Do not invent elements beyond the analysis report.
+
+**FINAL REMINDER BEFORE YOU BEGIN:**
+- Count ALL shots in the "Timeline Breakdown" section of the analysis
+- Generate a complete Sequence section (with First Frame, Last Frame, Motion prompts) for EACH shot
+- Do not stop after 1-2 sequences - continue until ALL shots from the analysis have corresponding sequence prompts
+- The output should have as many "Sequence [N]" sections as there are shots in the Timeline Breakdown
+- Maintain continuity throughout by referencing the Character Registry and Core Technical Keywords
 
 Now analyze the video analysis report and generate the complete sequence breakdown using the Smart Frame Strategy and the prompt formulas above.
 """

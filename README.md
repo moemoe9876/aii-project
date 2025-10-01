@@ -8,10 +8,12 @@ This project recreates videos using a multi-stage AI pipeline powered by **Gemin
 
 1. **Video Downloader** - Download videos from Instagram, Twitter, YouTube, and other platforms
 2. **Video Analyzer** - Generate detailed technical analysis reports of cinematography and style
-3. **Sequence Generator** - Break videos into sequences with:
+3. **Cinematography Quality Profiling** - Extract technical "DNA" (grain, lens, color science) for consistent recreation ⭐ NEW
+4. **Sequence Generator** - Break videos into sequences with:
    - **First Frame Image Prompts** (for text-to-image models)
    - **Last Frame Image Prompts** (for text-to-image models)
    - **Video Motion Prompts** (for image-to-video models)
+   - **Quality Keywords** (camera/lens/film characteristics automatically injected) ⭐ NEW
 
 ## 🎬 How It Works
 
@@ -69,6 +71,13 @@ Analyzes videos and generates technical reports:
 - Characters & objects (detailed descriptions, clothing, props)
 - Textures & environment (materials, surfaces, details)
 - Cinematography style (influences, era, genre references)
+- **⭐ NEW: Cinematography Quality Profile** - Extracts technical characteristics:
+  - Camera/sensor characteristics (film vs digital, resolution, dynamic range)
+  - Lens characteristics (sharpness, distortion, vignetting, bokeh character)
+  - Film stock/color science (grain structure, color response curves)
+  - Exposure & dynamic range (highlight/shadow handling)
+  - Motion characteristics (frame rate feel, motion blur)
+  - Generates **Core Technical Keywords** for consistent recreation
 
 ### 2. Sequence Generator
 Breaks videos into sequences with three prompts each:
@@ -234,7 +243,8 @@ ffmpeg -f concat -safe 0 -i sequence_list.txt -c copy output.mp4
 
 ## 📖 Documentation
 
-See [USAGE.md](USAGE.md) for detailed usage instructions, examples, and troubleshooting.
+- **[CINEMATOGRAPHY_QUALITY_MATCHING.md](CINEMATOGRAPHY_QUALITY_MATCHING.md)** - ⭐ NEW: How the quality matching system works
+- **[USAGE.md](USAGE.md)** - Detailed usage instructions, examples, and troubleshooting (if available)
 
 ## 🛠️ Requirements
 

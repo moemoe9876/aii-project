@@ -12,6 +12,7 @@ reports/*
 sequences/*
 !sequences/.gitkeep
 docs/
+.gemini/commands/
 .gemini/
 
 
